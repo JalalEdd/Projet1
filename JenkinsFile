@@ -1,0 +1,24 @@
+pipeline {
+         agent any
+         stages {
+                 stage('Test') {
+                    steps {
+                        echo 'Tests en cours...'
+                        bat 'mvn test'
+                    }
+                 }
+                 stage('Build') {
+                    steps {
+                        echo 'Démarrage du build de l'application.'
+                        bat 'mvn install'
+                    }
+                 }
+                 stage('Deploy') {
+                    steps{
+                        echo 'Déploiement en cours...'
+                        bat 'mvn deploy'
+                    }
+                 }
+              }
+}
+}
