@@ -1,4 +1,4 @@
-name: Workflow_Demo_1
+name: Workflow1
 on: push
 jobs:
   Clean: 
