@@ -1,8 +1,27 @@
 name: Workflow_Demo_1
 on: push
 jobs:
-  job1:
+  Clean: 
+    name: Clean application
     runs-on: ubuntu-latest
     steps:
-      - name: Etape1
-        run: echo "Hello World:)"
+      - name: step 1 for cleanup
+        run: echo "Remove all tmp file"
+      - name: step 2 for cleanup
+        run: dotnet clean 
+  Build:
+    name: Build application
+    runs-on: ubuntu-latest
+    needs: [Clean]
+    steps:
+      - name: step 1 for buil
+        run: dotnet build    
+  Test:
+    name: Test application
+    runs-on: ubuntu-latest
+    needs: [Build]
+    steps:
+      - name: step 1 for test
+        run: dotnet test
+      
+        
