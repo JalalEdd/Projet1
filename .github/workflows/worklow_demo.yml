@@ -1,13 +1,11 @@
-name: Workflow1
+name: DémoMémoire
 on: push
 jobs:
   Clean: 
     name: Clean application
     runs-on: ubuntu-latest
     steps:
-      - name: step 1 for cleanup
-        run: echo "Remove all tmp files"
-      - name: step 2 for cleanup
+      - name: Cleanup
         run: dotnet clean 
   Build:
     name: Build application
