@@ -12,14 +12,14 @@ jobs:
     runs-on: windows-latest
     needs: [Clean]
     steps:
-      - name: step 1 for buil
+      - name: Build
         run: dotnet build    
   Test:
     name: Test application
     runs-on: windows-latest
     needs: [Build]
     steps:
-      - name: step 1 for test
+      - name: Test
         run: dotnet test
       
         
