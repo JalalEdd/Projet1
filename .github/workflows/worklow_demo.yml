@@ -6,20 +6,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Cleanup
-        run: call .\Cleanup.cmd
+        uses: actions/checkout@v3
   Build:
     name: Build application
     runs-on: windows-latest
     needs: [Clean]
     steps:
       - name: Build
-        run: call .\Build.cmd   
+        uses: octo-org/another-repo/.github/workflows/workflow.yml@v1    
   Test:
     name: Test application
     runs-on: windows-latest
     needs: [Build]
     steps:
       - name: Test
-        run: call .\Test.cmd
+        uses: ./.github/workflows/workflow-2.yml
       
-        
