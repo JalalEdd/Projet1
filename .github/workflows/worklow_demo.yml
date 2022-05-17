@@ -3,20 +3,20 @@ on: push
 jobs:
   Clean: 
     name: Clean application
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Cleanup
         run: dotnet clean 
   Build:
     name: Build application
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: [Clean]
     steps:
       - name: step 1 for buil
         run: dotnet build    
   Test:
     name: Test application
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: [Build]
     steps:
       - name: step 1 for test
