@@ -1,0 +1,31 @@
+pipeline {
+         agent any
+         stages {
+                 stage('Build') {
+                    steps {
+                        echo 'Démarrage du build de l'application'
+                        bat 'mvn install'
+                    }
+                 }
+                 stage('Test') {
+                    steps {
+                        echo 'Tests en cours'
+                        bat 'mvn test'
+                    }
+                 }
+                 stage('Deploy') {
+                    steps{
+                        echo 'Déploiement en cours'
+                        bat 'mvn deploy'
+                    }
+                 }
+                 stage ('Couverture de code') {
+                    steps {
+                        build job: 'pipelineCouvetureCode', parameters: [
+                          string(name: 'param1', value: "value1")
+                        ]
+                        
+                     }
+                 }
+         }
+}
